@@ -1,0 +1,11 @@
+{
+  "name": "feltabout",
+  "version": "1.0.0",
+  "description": "Feeling Calculator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "dave killough",
+  "license": "ISC"
+}
