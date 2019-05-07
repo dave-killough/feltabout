@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://www.chartjs.org/samples/latest/charts/area/line-stacked.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Line Chart</title>
+	<script async="" src="./feelflow_files/analytics.js"></script>
+	<script src="./feelflow_files/Chart.bundle.js"></script><style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style>
+	<script src="./feelflow_files/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div style="width:75%;"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+		<canvas id="canvas" width="1412" height="706" class="chartjs-render-monitor" style="display: block; height: 565px; width: 1130px;"></canvas>
+	</div>
+	<br>
+	<br>
+	<button id="randomizeData">Randomize Data</button>
+	<button id="addDataset">Add Dataset</button>
+	<button id="removeDataset">Remove Dataset</button>
+	<button id="addData">Add Data</button>
+	<button id="removeData">Remove Data</button>
+	<script>
+		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var config = {
+			type: 'line',
+			data: {
+				labels: ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', ''],
+				datasets: [{
+					label: 'joy',
+					borderColor: window.chartColors.yellow,
+					backgroundColor: window.chartColors.yellow,
+					data: [
+					    randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor(),
+						randomScalingFactor()
+					],
+				}, {
+					label: 'desire',
+					borderColor: window.chartColors.orange,
+					backgroundColor: window.chartColors.orange,
+					data: [
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor()
+					],
+				}, {
+					label: 'sadness',
+					borderColor: window.chartColors.blue,
+					backgroundColor: window.chartColors.blue,
+					data: [
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor()
+					],
+				}, {
+					label: 'anger',
+					borderColor: window.chartColors.red,
+					backgroundColor: window.chartColors.red,
+					data: [
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor()
+					],
+				}, {
+					label: 'disgust',
+					borderColor: window.chartColors.green,
+					backgroundColor: window.chartColors.green,
+					data: [
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor()
+					],
+				}, {
+					label: 'fear',
+					borderColor: window.chartColors.purple,
+					backgroundColor: window.chartColors.purple,
+					data: [
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor(),
+						0-randomScalingFactor()
+					],
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Line Chart - Stacked Area'
+				},
+				tooltips: {
+					mode: 'index',
+				},
+				hover: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: ''
+						}
+					}],
+					yAxes: [{
+						stacked: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					if (dataset.label != "joy") 
+						return 0-randomScalingFactor();
+					else 
+					    return randomScalingFactor();
+				});
+
+			});
+
+			window.myLine.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var colorName = colorNames[config.data.datasets.length % colorNames.length];
+			var newColor = window.chartColors[colorName];
+			var newDataset = {
+				label: 'Dataset ' + config.data.datasets.length,
+				borderColor: newColor,
+				backgroundColor: newColor,
+				data: [],
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myLine.update();
+		});
+
+		document.getElementById('addData').addEventListener('click', function() {
+			if (config.data.datasets.length > 0) {
+				var month = MONTHS[config.data.labels.length % MONTHS.length];
+				config.data.labels.push(month);
+
+				config.data.datasets.forEach(function(dataset) {
+					dataset.data.push(randomScalingFactor());
+				});
+
+				window.myLine.update();
+			}
+		});
+
+		document.getElementById('removeDataset').addEventListener('click', function() {
+			config.data.datasets.splice(0, 1);
+			window.myLine.update();
+		});
+
+		document.getElementById('removeData').addEventListener('click', function() {
+			config.data.labels.splice(-1, 1); // remove the label first
+
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data.pop();
+			});
+
+			window.myLine.update();
+		});
+	</script>
+
+
+
+</body></html>
