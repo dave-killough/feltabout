@@ -49,7 +49,7 @@ a {
 #expressions { display: none; }
 #expression { display: none; }
 #logo {
-    display: block;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
