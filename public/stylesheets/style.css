@@ -15,9 +15,13 @@ body {
 }
 #signup-button {
   width: 50%;
+  display: block;
 }
 #login-buttom {
   width: 50%;
+  display: block;
+  background-color: #444444;
+  color: white;
 }
 a {
   color: #00B7FF;
