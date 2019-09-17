@@ -16,12 +16,28 @@ body {
 #signup-button {
   width: 50%;
   display: block;
+  background-color: #777777;
+  color: #eeeeee;
+  height: 40px;
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 5px;
+  left: 0px;
+  right: 0px;
+  position: absolute;  
 }
 #login-buttom {
   width: 50%;
   display: block;
-  background-color: #444444;
-  color: white;
+  background-color: #777777;
+  color: #eeeeee;
+  height: 40px;
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 5px;
+  left: 0px;
+  right: 0px;
+  position: absolute; 
 }
 a {
   color: #00B7FF;
