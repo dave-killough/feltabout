@@ -69,3 +69,38 @@ a {
 #logo2 { background-color: lightgrey; height: 40px;}
 #intro { background-color: lightgrey; height: 120px;}
 
+#login {
+  padding: 10px;
+}
+#login-heading {
+  margin: 0;
+}
+#user-label {
+  display: block;
+  margin-top: 15px;
+}
+#user {
+  background-color: #dddddd;
+  border-width: 1px;
+  height: 34px; 
+  display: block;
+  width: 100%; 
+  font-size: 20px;
+}
+#password-label {
+  display: block;
+  margin-top: 15px; 
+}
+#password {
+  display: block;
+  background-color: #dddddd;
+  border-width: 1px;
+  height: 34px;
+  width: 100%;
+  font-size: 20px;
+}
+#login-submit-button {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
