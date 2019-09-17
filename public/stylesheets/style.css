@@ -1,8 +1,44 @@
+
+html, body, .page {
+  height: 100%;
+}
+.page {
+  position: relative;
+}
+#front-top, #front-bottom {
+  height: 50%;
+  position: relative;
+}
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
   color: #00B7FF;
 }
+.table { display: table }    
+.row { display: table-row } 
+.cell { display: table-cell } 
+#home { display: none; }
+#signin { display: none; }
+#signup { display: none; }
+#connections { display: none; }
+#connection { display: none; }
+#expressions { display: none; }
+#expression { display: none; }
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;  
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+}
+#logo2 { background-color: lightgrey; height: 40px;}
+#intro { background-color: lightgrey; height: 120px;}
+

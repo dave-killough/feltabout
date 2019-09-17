@@ -5,32 +5,30 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>feltabout</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <style>
-      .table { display: table }    
-      .row { display: table-row } 
-      .cell { display: table-cell } 
-      #signin { display: none; background-color: lightgrey; }
-      #signup { display: none; background-color: lightgrey; }
-      #expressions { display: none; }
-      #expression { display: none; }
-      #connections { display: none; }
-      #connection { display: none; }
-      #logo {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-      }
-      #logo2 { background-color: lightgrey; height: 40px;}
-      #intro { background-color: lightgrey; height: 120px;}
-    </style>
 <!--
     <link rel="icon" href="images/favicon.png" />
 -->    
 </head>
 <body>
+    <div id="front" class="page">
+      <div id="front-top">
+          <img id="logo" src='/feltabout.svg' />
+      </div>
+      <div id="front-bottom">
+          
+              <button id="signup-button" type="button">Sign Up</button>  
+              <button id="login-button" type="button">Log In</button>      
+                  
+      </div>
+
+    </div>
     <div id="signin" class="page">
-      <img id="logo" src='/feltabout.svg' />
+      <div>
+
+      </div>
+      
       <form name="signin_form" class="table">
      
         <p class="row">
@@ -68,28 +66,9 @@
       </form>
     </div>
     <div id="expressions">
-      <form name="signup_form">
-        <p id="with">
-          <label for="with">With: </label>
-          <input id="user" type="text">
-        </p>
-        <p id="ifelt">
-          <label for="password">Password:</label>
-          <input id="password" type="password">
-        </p>          
-      </form>
     </div>
     <div id="expression">
-      <form name="signup_form">
-        <p id="with">
-          <label for="with">With: </label>
-          <input id="user" type="text">
-        </p>
-        <p id="ifelt">
-          <label for="password">Password:</label>
-          <input id="password" type="password">
-        </p>          
-      </form>
+
     </div>     
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -105,7 +84,8 @@ $(function() {
 	function render(url) {
     var base = url.split('/')[0];
     // make sure user is loggged in - security
-    if (base == '') renderSigninPage(url);
+    if (base == '') renderFrontPage(url);
+    else if (base == '#signin') renderSigninPage(url);
     else if (base == '#signup') renderSignupPage(url);
     //else if (base == '#expressions') renderExpressionsPage(url);
     //else if (base == '#expression') renderExpressionPage(url);
@@ -113,6 +93,12 @@ $(function() {
     //else if (base == '#connection') renderConnectionPage(url);
     else renderErrorPage(url);
   }
+  function renderFrontPage(url) {
+    $('.page').css('display','none')
+    var page = $('#front');
+    var that = $(this);
+    page.css('display','block')
+  }  
   function renderSigninPage(url) {
     $('.page').css('display','none')
     var page = $('#signin');
