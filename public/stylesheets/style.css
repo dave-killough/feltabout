@@ -1,5 +1,8 @@
 
-html, body, .page {
+html, body {
+  height: 100%;
+}
+#front {
   height: 100%;
 }
 .page {
@@ -70,6 +73,9 @@ a {
 #intro { background-color: lightgrey; height: 120px;}
 
 #login {
+  height: 100%;
+}
+#login-top {
   padding: 10px;
 }
 #login-heading {
