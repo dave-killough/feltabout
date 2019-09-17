@@ -57,7 +57,7 @@ a {
 #expressions { display: none; }
 #expression { display: none; }
 #logo {
-    display: none;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     background-color: white;  
