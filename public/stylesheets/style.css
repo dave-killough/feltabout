@@ -13,6 +13,12 @@ body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#signup-button {
+  width: 50%;
+}
+#login-buttom {
+  width: 50%;
+}
 a {
   color: #00B7FF;
 }
