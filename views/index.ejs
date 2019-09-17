@@ -75,13 +75,16 @@ $(function() {
   });
   $(window).trigger('hashchange');
   $('#login-button').click(function(){
-    
+    window.location.hash = "login"
   });
+  $('#signup-button').click(function(){
+    window.location.hash = "signup"
+  });  
 	function render(url) {
     var base = url.split('/')[0];
     // make sure user is loggged in - security
     if (base == '') renderFrontPage(url);
-    else if (base == '#signin') renderSigninPage(url);
+    else if (base == '#login') renderLoginPage(url);
     else if (base == '#signup') renderSignupPage(url);
     //else if (base == '#expressions') renderExpressionsPage(url);
     //else if (base == '#expression') renderExpressionPage(url);
@@ -95,9 +98,9 @@ $(function() {
     var that = $(this);
     page.css('display','block')
   }  
-  function renderSigninPage(url) {
+  function renderLoginPage(url) {
     $('.page').css('display','none')
-    var page = $('#signin');
+    var page = $('#login');
     var that = $(this);
     page.css('display','block')
   }
@@ -114,7 +117,7 @@ $(function() {
         // Clear the filters object, uncheck all checkboxes, show all the products
         //filters = {};
         //checkboxes.prop('checked',false);
-        renderSigninPage();
+        renderLoginPage();
       },
       '#product': function() { // Single Products page.
         // Get the index of which product we want to show and call the appropriate function.
