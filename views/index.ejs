@@ -94,6 +94,9 @@ $(function() {
     var page = $('#login');
     var that = $(this);
     page.css('display','block')
+    $("#user").focus();
+    // if user already has a value then 
+    // go to password
   }
   function renderSignupPage(url) {
     $('.page').css('display','none')
