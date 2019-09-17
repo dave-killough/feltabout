@@ -21,12 +21,8 @@
         <button id="signup-button" type="button">Sign Up</button>  
       </div>
     </div>
-    <div id="signin" class="page">
-      <div>
-
-      </div>
-      
-      <form name="signin_form" class="table">
+    <div id="login" class="page">
+      <form name="login_form" class="table">
      
         <p class="row">
           <label for="user" class="cell">User</label>
@@ -78,6 +74,9 @@ $(function() {
     render(decodeURI(window.location.hash));
   });
   $(window).trigger('hashchange');
+  $('#login-button').click(function(){
+    
+  });
 	function render(url) {
     var base = url.split('/')[0];
     // make sure user is loggged in - security
