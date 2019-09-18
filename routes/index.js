@@ -3,7 +3,7 @@ var router = express.Router();
 
 const { Pool } = require('pg');
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL + ";sslmode=require",
+  connectionString: process.env.DATABASE_URL + "sslmode=require",
   ssl: true
 });
 
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     client.release();
   } catch (err) {
     console.error(err);
-    res.send("Error " + err);
+    res.send(err);
   }
 });
 
