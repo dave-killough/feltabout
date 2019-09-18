@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('feltabout:server');
 var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
