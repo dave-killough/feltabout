@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
     const client = await pool.connect()
     const result = await client.query('SELECT * FROM fab_user');
     const results = { 'results': (result) ? result.rows : null};
-    res.render('pages/db', results );
+    res.json(results);
     client.release();
   } catch (err) {
     console.error(err);
