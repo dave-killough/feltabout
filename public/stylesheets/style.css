@@ -11,10 +11,14 @@ html, body {
 #front-top {
   height: 50%;
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
 }
 #front-bottom {
   height: 50%;
   text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
 }
 body {
   padding: 0px;
@@ -57,7 +61,7 @@ a {
 #expressions { display: none; }
 #expression { display: none; }
 #logo {
-    display: block;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     background-color: white;  
@@ -77,6 +81,8 @@ a {
 }
 #login-top {
   padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 #login-heading {
   margin: 0;
@@ -104,6 +110,64 @@ a {
   font-size: 20px;
 }
 #login-submit-button {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #777777;
+  color: #eeeeee;
+  height: 40px;
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+
+#signup {
+  height: 100%;
+}
+#signup-top {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#signup-heading {
+  margin: 0;
+}
+#signup-user-label {
+  display: block;
+  margin-top: 15px;
+}
+#signup-user {
+  background-color: #dddddd;
+  border-width: 1px; 
+  display: block;
+  width: 100%; 
+  font-size: 20px;
+}
+#signup-password-label {
+  display: block;
+  margin-top: 15px; 
+}
+#signup-password {
+  display: block;
+  background-color: #dddddd;
+  border-width: 1px;
+  width: 100%;
+  font-size: 20px;
+}
+#signup-verify-label {
+  display: block;
+  margin-top: 15px; 
+}
+#signup-verify {
+  display: block;
+  background-color: #dddddd;
+  border-width: 1px;
+  width: 100%;
+  font-size: 20px;
+}
+#signup-submit-button {
   font-size: 20px;
   margin-top: 20px;
   width: 100%;
