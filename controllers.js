@@ -7,6 +7,18 @@ const pool = new Pool({
 });
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'feltabout' });
+}).post('/signup', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const result = await client.query(
+      'INSERT INTO fab_user(user_name, user_password)',[req.body.]);
+    const results = { 'results': (result) ? result.rows : null};
+    res.json(results);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send(err);
+  }
 }).get('/db', async (req, res) => {
   try {
     const client = await pool.connect()

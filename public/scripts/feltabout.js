@@ -2,6 +2,7 @@ $(function() {
     // ajax is
     //signed_in = true; 
     //$('#signin').css('display','block'); 
+    //$.post('server.php', $('#theForm').serialize())
     hashchange_counter = 0;
     $(window).on('hashchange', function(){
         render(decodeURI(window.location.hash));
@@ -13,7 +14,7 @@ $(function() {
     $('#signup-button').click(function(){
         window.location.hash = "signup"
     });  
-        function render(url) {
+    function render(url) {
         var base = url.split('/')[0];
         // make sure user is loggged in - security
         if (base == '') renderFrontPage(url);
