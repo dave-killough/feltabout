@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'feltabout' });
-}).post('/signup', async (req, res) => {
+}).post('/signup', async (req, res, next) => {
   try {
     signup_user = req.body["signup-user"];
     signup_password = req.body["signup-password"];
@@ -48,13 +48,13 @@ router.get('/', function(req, res, next) {
     else {
       const client = await pool.connect();
       const result1 = await client.query( // does the passed user already exist?
-        'SELECT password FROM fab_user WHERE user_name = $1', [ user ]
+        'SELECT user_password FROM fab_user WHERE user_name = $1', [ user ]
       );
       if (result1.rowCount === 0) { // user not found 
         results = { 'status': -1, 'message': 'User/password not valid.  Please try again.'};
       }
       else {
-        s_password = result1.rows[0]["password"];
+        s_password = result1.rows[0]["user_password"];
         if (password != s_password) {
           results = { 'status': -1, 'message': 'User/Password not valid.  Please try again.'};
         }

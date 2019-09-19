@@ -19,18 +19,6 @@
         <button id="signup-button" type="button">Sign Up</button>  
       </div>
     </div>
-    <div id="login" class="page">
-      <div id="login-top">
-        <h2 id="login-heading">Log In</h2>
-        <form name="login-form">
-          <label id="user-label" for="user">User</label>
-          <input id="user" type="text">
-          <label id="password-label" for="password">Password</label>
-          <input id="password" type="password">
-          <button id="login-submit-button" type="button">Log In</button>        
-        </form>
-      </div>
-    </div>
     <div id="signup" class="page">
       <div id="signup-top">
         <h2 id="signup-heading">Sign Up</h2>
@@ -48,7 +36,20 @@
         </form>
       </div>
     </div>
-    <div id="connections" class="page">
+    <div id="login" class="page">
+        <div id="login-top">
+          <h2 id="login-heading">Log In</h2>
+          <form id="login-form" name="login-form">
+            <label id="user-label" for="user">User</label>
+            <input id="user" name="user" type="text">
+            <label id="password-label" for="password">Password</label>
+            <input id="password" name="password" type="password">
+            <button id="login-submit-button" type="button">Log In</button>   
+            <div id="login-error-message"></div>     
+          </form>
+        </div>
+      </div>
+      <div id="connections" class="page">
       <div id="connections-top">
         <h2 id="connections-heading">Connections</h2>
       </div>
