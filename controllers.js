@@ -9,8 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'feltabout' });
 }).post('/signup', async (req, res) => {
   try {
-    const client = await pool.connect()
-    
+    const client = await pool.connect();
     const result = await client.query(
       'INSERT INTO fab_user(user_name, user_password) VALUES ($1,$2)',['dave','test']);
     const results = { 'results': (result) ? result.rows : null};
