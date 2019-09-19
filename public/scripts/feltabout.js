@@ -9,11 +9,17 @@ $(function() {
     });
     $(window).trigger('hashchange');
     $('#login-button').click(function(){
-        window.location.hash = "login"
+        window.location.hash = "login";
     });
     $('#signup-button').click(function(){
-        window.location.hash = "signup"
+        window.location.hash = "signup";
     });  
+    $('#signup-submit-button').click(function(){
+        $signup_form = $('signup-form');
+        data = $signup_form.serialize();
+        $.post('/signup',data);
+        window.location.hash = "signup";
+    }); 
     function render(url) {
         var base = url.split('/')[0];
         // make sure user is loggged in - security
