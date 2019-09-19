@@ -15,8 +15,7 @@ $(function() {
         window.location.hash = "signup";
     });  
     $('#signup-submit-button').click(function(){
-        $signup_form = $('signup-form');
-        data = $signup_form.serialize();
+        data = $('#signup-form').serialize();
         $.post('/signup',data);
         window.location.hash = "signup";
     }); 
