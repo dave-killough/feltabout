@@ -1,9 +1,4 @@
 $(function() {
-    // ajax is
-    //signed_in = true; 
-    //$('#signin').css('display','block'); 
-    //$.post('server.php', $('#theForm').serialize())
-    hashchange_counter = 0;
     $(window).on('hashchange', function(){
         render(decodeURI(window.location.hash));
     });
@@ -14,10 +9,23 @@ $(function() {
     $('#signup-button').click(function(){
         window.location.hash = "signup";
     });  
-    $('#signup-submit-button').click(function(){
+    $('#signup-submit-button').click(function(e){
         data = $('#signup-form').serialize();
-        $.post('/signup',data);
-        window.location.hash = "signup";
+        signup_user = $('#signup-user').val();
+        $.ajax({
+            url: "/signup",
+            method: 'POST',
+            data: data,
+            success: function(d) {
+
+                window.location.hash = "connnections";
+            },
+            error: function(e) {
+
+            }
+        });
+        e.preventDefault(); // Don't forget to stop the form from being submitted the "normal" way.
+        
     }); 
     function render(url) {
         var base = url.split('/')[0];
