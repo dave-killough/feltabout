@@ -22,13 +22,14 @@ router.get('/', function(req, res, next) {
         'SELECT user_id FROM fab_user WHERE user_name = $1', [ signup_user ]
       );
       if (result1.rowCount > 0) { // user already exists
-        results = { 'status': -1, 'message': 'This user is already taken.'};
+        results = { 'status': -1, 'message': 'User taken.  Please select another.'};
       }
       else {
         const result2 = await client.query(
           'INSERT INTO fab_user(user_name, user_password) VALUES ($1,$2)',params);
         results = { 'status': 0, 'message': 'All good!!'};
-      }      
+      }  
+      client.release(); 
     }
     res.json(results);
   } 
@@ -37,7 +38,39 @@ router.get('/', function(req, res, next) {
     results = { 'status': -9, 'message': err.message };
     res.json(results);
   }
-  client.release(); 
+}).post('/login', async (req, res) => {
+  try {
+    user = req.body["user"];
+    password = req.body["password"];
+    if (user === "" || password === "") {
+      results = { 'status': -2, 'message': 'Please provide a user and password.'};
+    }
+    else {
+      const client = await pool.connect();
+      const result1 = await client.query( // does the passed user already exist?
+        'SELECT password FROM fab_user WHERE user_name = $1', [ user ]
+      );
+      if (result1.rowCount === 0) { // user not found 
+        results = { 'status': -1, 'message': 'User/password not valid.  Please try again.'};
+      }
+      else {
+        s_password = result1.rows[0]["password"];
+        if (password != s_password) {
+          results = { 'status': -1, 'message': 'User/Password not valid.  Please try again.'};
+        }
+        else {
+          results = { 'status': 0, 'message': 'All good!!'};
+        }
+      }  
+      client.release(); 
+    }
+    res.json(results);
+  } 
+  catch (err) {
+    console.error(err);
+    results = { 'status': -9, 'message': err.message };
+    res.json(results);
+  }
 }).get('/db', async (req, res) => {
   try {
     const client = await pool.connect()

@@ -1,4 +1,5 @@
 $(function() {
+    var user = "";  // session user
     $(window).on('hashchange', function(){
         render(decodeURI(window.location.hash));
     });
@@ -10,6 +11,9 @@ $(function() {
         window.location.hash = "signup";
     });  
     $('#signup-submit-button').click(function(e){
+        $error = $("#signup-error-message");
+        $error.text("");
+        $error.css("background-color","white");
         data = $('#signup-form').serialize();
         signup_user = $('#signup-user').val();
         $.ajax({
@@ -17,15 +21,49 @@ $(function() {
             method: 'POST',
             data: data,
             success: function(d) {
-
-                window.location.hash = "connnections";
+                if (d.status !== 0) {
+                    // operation failed 
+                    $error.text(d.message);
+                    $error.css("background-color","coral");
+                }
+                else {
+                    user = signup_user;
+                    window.location.hash = "connections";
+                }
             },
             error: function(e) {
-
+                $error.text(e.message);
+                $error.css("background-color","coral");
             }
         });
         e.preventDefault(); // Don't forget to stop the form from being submitted the "normal" way.
-        
+    }); 
+    $('#login-submit-button').click(function(e){
+        $error = $("#login-error-message");
+        $error.text("");
+        $error.css("background-color","white");
+        data = $('#login-form').serialize();
+        user = $('#user').val();
+        $.ajax({
+            url: "/login",
+            method: 'POST',
+            data: data,
+            success: function(d) {
+                if (d.status !== 0) {
+                    // operation failed 
+                    $error.text(d.message);
+                    $error.css("background-color","coral");
+                }
+                else {
+                    window.location.hash = "connections";
+                }
+            },
+            error: function(e) {
+                $error.text(e.message);
+                $error.css("background-color","coral");
+            }
+        });
+        e.preventDefault(); // Don't forget to stop the form from being submitted the "normal" way.
     }); 
     function render(url) {
         var base = url.split('/')[0];
@@ -33,9 +71,9 @@ $(function() {
         if (base == '') renderFrontPage(url);
         else if (base == '#login') renderLoginPage(url);
         else if (base == '#signup') renderSignupPage(url);
+        else if (base == '#connections') renderConnectionsPage(url);
         //else if (base == '#expressions') renderExpressionsPage(url);
         //else if (base == '#expression') renderExpressionPage(url);
-        //else if (base == '#connections') renderConnectionsPage(url);
         //else if (base == '#connection') renderConnectionPage(url);
         else renderErrorPage(url);
     }
@@ -60,6 +98,12 @@ $(function() {
         var that = $(this);
         page.css('display','block')
     }  
+    function renderConnectionsPage(url) {
+        $('.page').css('display','none');
+        var page = $('#connections');
+        var that = $(this);
+        page.css('display','block')
+    }      
     function r2(url) {
         //$('.main-content .page').removeClass('visible');  // Hide whatever page is currently shown.
         var map = {
