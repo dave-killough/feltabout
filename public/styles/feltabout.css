@@ -1,11 +1,17 @@
 html, body {
   height: 100%;
 }
-#front {
-  height: 100%;
+body {
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
 }
 .page {
   position: relative;
+  display: none;
+  height: 100%;
 }
 #front-top {
   height: 50%;
@@ -19,111 +25,30 @@ html, body {
   max-width: 400px;
   margin: 0 auto;
 }
-body {
-  padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-#signup-button {
-  width: 50%;
-  background-color: #777777;
-  color: #eeeeee;
-  height: 40px;
-  font-size: 18px;
-  border-width: 0px;
-  border-radius: 5px;
-
-}
-#login-button {
-  width: 50%;
-  background-color: #777777;
-  color: #eeeeee;
-  height: 40px;
-  font-size: 18px;
-  border-width: 0px;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-#user {
+#front-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;  
+  padding: 20px;
   width: 80%;
-}
-a {
-  color: #00B7FF;
-}
-.table { display: table }    
-.row { display: table-row } 
-.cell { display: table-cell } 
-#home { display: none; }
-#signin { display: none; }
-#signup { display: none; }
-#connections { display: none; }
-#connection { display: none; }
-#expressions { display: none; }
-#expression { display: none; }
-#logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;  
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    position: absolute;
-}
-#logo2 { background-color: lightgrey; height: 40px;}
-#intro { background-color: lightgrey; height: 120px;}
-
-#login {
-  height: 100%;
-}
-#login-top {
-  padding: 10px;
   max-width: 400px;
-  margin: 0 auto;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  position: absolute;
 }
-#login-heading {
-  margin: 0;
-}
-#user-label {
-  display: block;
-  margin-top: 15px;
-}
-#user {
-  background-color: #dddddd;
-  border-width: 1px; 
-  display: block;
-  width: 100%; 
-  font-size: 20px;
-}
-#password-label {
-  display: block;
-  margin-top: 15px; 
-}
-#password {
-  display: block;
-  background-color: #dddddd;
-  border-width: 1px;
-  width: 100%;
-  font-size: 20px;
-}
-#login-submit-button {
-  font-size: 20px;
-  margin-top: 20px;
-  width: 100%;
+#front-signup-button, #front-login-button {
+  width: 50%;
   background-color: #777777;
   color: #eeeeee;
   height: 40px;
   font-size: 18px;
   border-width: 0px;
   border-radius: 5px;
-  margin-bottom: 15px;
 }
-
-
-#signup {
-  height: 100%;
+#front-login-button {
+  margin-bottom: 15px;
 }
 #signup-top {
   padding: 10px;
@@ -184,4 +109,50 @@ a {
   width: 100%;
   font-size: 18px;
   height: 44px;
+}
+
+#user {
+  width: 80%;
+}
+#login-top {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#login-heading {
+  margin: 0;
+}
+#user-label {
+  display: block;
+  margin-top: 15px;
+}
+#user {
+  background-color: #dddddd;
+  border-width: 1px; 
+  display: block;
+  width: 100%; 
+  font-size: 20px;
+}
+#password-label {
+  display: block;
+  margin-top: 15px; 
+}
+#password {
+  display: block;
+  background-color: #dddddd;
+  border-width: 1px;
+  width: 100%;
+  font-size: 20px;
+}
+#login-submit-button {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #777777;
+  color: #eeeeee;
+  height: 40px;
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
