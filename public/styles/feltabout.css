@@ -172,21 +172,21 @@ a {
   background-color: rgb(210,210,210)  
 }
 .connections-row {
-  height: 50px;
+  height: 64px;
 }
 .connections-picture {
-  width: 50px;
+  width: 64px;
 }
 .connections-image {
-  height: 48px;
-  width: 48px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
 }
 .connections-name {
   border-bottom: 1px solid rgb(210, 210, 210); 
 }
 .connections-menu {
-  width: 50px;
+  width: 64px;
   border-bottom: 1px solid rgb(210, 210, 210); 
 }
 #connections-list {
