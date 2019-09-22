@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>feltabout</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css'/>
     <link rel='stylesheet' href='/styles/feltabout.css' />
@@ -40,10 +40,10 @@
       <div id="login-top">
         <h2 id="login-heading">Log In</h2>
         <form id="login-form" name="login-form">
-          <label id="user-label" for="user">User</label>
-          <input id="user" name="user" type="text">
-          <label id="password-label" for="password">Password</label>
-          <input id="password" name="password" type="password">
+          <label id="login-user-label">User</label>
+          <input id="login-user" name="login-user" type="text">
+          <label id="login-password-label">Password</label>
+          <input id="login-password" name="login-password" type="password">
           <button id="login-submit-button" type="button">Log In</button>   
           <div id="login-error-message"></div>     
         </form>
@@ -51,7 +51,10 @@
     </div>
     <div id="connections" class="page">
     <div id="connections-top">
-      <h2 id="connections-heading">Connections</h2>
+      <h2 id="connections-heading"></h2>
+      <ol id="connections-list">
+        <li></li>
+      </ol>
     </div>
     </div>
     <div id="connection" class="page">
@@ -63,6 +66,6 @@
     <div id="error" class="page">
     </div>   
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="/scripts/feltabout.js?d=2019.09.19b"></script>    
+    <script type="text/javascript" src="/scripts/feltabout.js?d=2019.09.20d"></script>    
 </body>
 </html>

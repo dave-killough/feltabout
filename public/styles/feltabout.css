@@ -13,6 +13,7 @@ a {
   display: none;
   height: 100%;
 }
+
 #front-top {
   height: 50%;
   position: relative;
@@ -50,6 +51,7 @@ a {
 #front-login-button {
   margin-bottom: 15px;
 }
+
 #signup-top {
   padding: 10px;
   max-width: 400px;
@@ -111,9 +113,6 @@ a {
   height: 44px;
 }
 
-#user {
-  width: 80%;
-}
 #login-top {
   padding: 10px;
   max-width: 400px;
@@ -122,22 +121,22 @@ a {
 #login-heading {
   margin: 0;
 }
-#user-label {
+#login-user-label {
   display: block;
   margin-top: 15px;
 }
-#user {
+#login-user {
   background-color: #dddddd;
   border-width: 1px; 
   display: block;
   width: 100%; 
   font-size: 20px;
 }
-#password-label {
+#login-password-label {
   display: block;
   margin-top: 15px; 
 }
-#password {
+#login-password {
   display: block;
   background-color: #dddddd;
   border-width: 1px;
@@ -145,6 +144,38 @@ a {
   font-size: 20px;
 }
 #login-submit-button {
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #777777;
+  color: #eeeeee;
+  height: 40px;
+  font-size: 18px;
+  border-width: 0px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#connections-top {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+#connections-heading {
+  margin: 0;
+}
+#connections-x-label {
+  display: block;
+  margin-top: 15px;
+}
+#connections-x-user {
+  background-color: #dddddd;
+  border-width: 1px; 
+  display: block;
+  width: 100%; 
+  font-size: 20px;
+}
+#connections-submit-button {
   font-size: 20px;
   margin-top: 20px;
   width: 100%;

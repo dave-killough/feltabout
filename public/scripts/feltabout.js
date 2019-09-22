@@ -4,10 +4,10 @@ $(function() {
         render(decodeURI(window.location.hash));
     });
     $(window).trigger('hashchange');
-    $('#login-button').click(function(){
+    $('#front-login-button').click(function(){
         window.location.hash = "login";
     });
-    $('#signup-button').click(function(){
+    $('#front-signup-button').click(function(){
         window.location.hash = "signup";
     });  
     $('#signup-submit-button').click(function(e){
@@ -43,7 +43,7 @@ $(function() {
         $error.text("");
         $error.css("background-color","white");
         data = $('#login-form').serialize();
-        user = $('#user').val();
+        user = $('#login-user').val();
         $.ajax({
             url: "/login",
             method: 'POST',
@@ -102,7 +102,33 @@ $(function() {
         $('.page').css('display','none');
         var page = $('#connections');
         var that = $(this);
-        page.css('display','block')
+        page.css('display','block');
+        $.ajax({
+            url: "/connections",
+            method: 'GET',
+            success: function(d) {
+                if (d.status !== 0) { // operation failed 
+                    $error.text(d.message);
+                    $error.css("background-color","coral");
+                }
+                else {
+                    cl = $('#connections-list');
+                    cl.empty();
+                    rows = d.result.rows;
+                    for (var i = 0; i < rows.length; i++) {
+                        var row = rows[i]; 
+                        cl.append(`<li>` 
+                          + row["connection_name"] 
+                          + `</li>`
+                        );
+                    }
+                }
+            },
+            error: function(e) {
+                $error.text(e.message);
+                $error.css("background-color","coral");
+            }
+        });        
     }      
     function r2(url) {
         //$('.main-content .page').removeClass('visible');  // Hide whatever page is currently shown.
