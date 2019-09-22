@@ -65,6 +65,10 @@ $(function() {
         });
         e.preventDefault(); // Don't forget to stop the form from being submitted the "normal" way.
     }); 
+    $('#connections-table').on("click", ".connections-menu"
+    , function() {
+        alert("clicked");
+    });
     function render(url) {
         var base = url.split('/')[0];
         // make sure user is loggged in - security
@@ -87,8 +91,8 @@ $(function() {
         $('.page').css('display','none')
         var page = $('#login');
         var that = $(this);
-        page.css('display','block')
-        $("#user").focus();
+        page.css('display','block');
+        $("#login-user").focus();
         // if user already has a value then 
         // go to password
     }
