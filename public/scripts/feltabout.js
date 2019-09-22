@@ -121,6 +121,7 @@ $(function() {
     <td class="connections-header-name">
     </td>
     <td class="connections-header-menu">
+        <i class="fas fa-bars"></i>
     </td>
 </tr>                    
                     `);  
@@ -137,6 +138,7 @@ $(function() {
       ` + row["connection_name"] + `
     </td>
     <td class="connections-menu">
+        <i class="fas fa-bars"></i>
     </td>
 </tr>
                         `);
