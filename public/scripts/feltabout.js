@@ -112,15 +112,34 @@ $(function() {
                     $error.css("background-color","coral");
                 }
                 else {
-                    cl = $('#connections-list');
-                    cl.empty();
+                    $("#connections-table tr").remove();
+                    $("#connections-table tbody").remove();
+                    $('#connections-table').append(`
+<tr id="connections-header" class="connections-row">
+    <th class="connections-return">
+    </th>
+    <td class="connections-header-name">
+    </td>
+    <td class="connections-header-menu">
+    </td>
+</tr>                    
+                    `);  
                     rows = d.result.rows;
                     for (var i = 0; i < rows.length; i++) {
                         var row = rows[i]; 
-                        cl.append(`<li>` 
-                          + row["connection_name"] 
-                          + `</li>`
-                        );
+                        $('#connections-table').append(`
+<tr class="connections-row">
+    <td class="connections-picture">
+        <img class="connections-image" 
+             src="/images/puppy.jpg">
+    </td>
+    <td class="connections-name">
+      ` + row["connection_name"] + `
+    </td>
+    <td class="connections-menu">
+    </td>
+</tr>
+                        `);
                     }
                 }
             },

@@ -18,7 +18,8 @@ router.get('/', function(req, res, next) {
   try {
     signup_user = req.body["signup-user"];
     signup_password = req.body["signup-password"];
-    if (signup_user === "" || signup_password === "") {
+    if (signup_user === "" 
+    || signup_password === "") {
       results = { 'status': -2
       , 'message': 'Please provide a user and password.'};
     }
@@ -40,7 +41,7 @@ router.get('/', function(req, res, next) {
           VALUES ($1,$2) RETURNING user_id
           `,params);
         results = { 'status': 0, 'message': 'All good!!'};
-        s_user_id = result1.rows[0]["user_id"];
+        s_user_id = result2.rows[0]["user_id"];
         res.cookie('fab', s_user_id, cookieParams);
       }  
       client.release(); 
@@ -126,8 +127,8 @@ router.get('/', function(req, res, next) {
           results = { 'status': 0
           , 'message': 'All good!!'
           , 'result': result2 };
-      }  
-      client.release(); 
+      }
+      client.release();
     }
     res.json(results);
   } 

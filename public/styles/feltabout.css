@@ -164,6 +164,37 @@ a {
 #connections-heading {
   margin: 0;
 }
+#connections-table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+#connections-header {
+  background-color: rgb(210,210,210)  
+}
+.connections-row {
+  height: 50px;
+}
+.connections-picture {
+  width: 50px;
+}
+.connections-image {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+.connections-name {
+  border-bottom: 1px solid rgb(210, 210, 210); 
+}
+.connections-menu {
+  width: 50px;
+  border-bottom: 1px solid rgb(210, 210, 210); 
+}
+#connections-list {
+  list-style-type: none;
+}
+#connections-list li {
+  border-bottom: 1px solid grey;
+}
 #connections-x-label {
   display: block;
   margin-top: 15px;
